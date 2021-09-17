@@ -5,7 +5,7 @@ using System.Text;
 namespace BingingApi.Controllers
 {
     [ApiController]
-    [Route("bindingeventdemo")]
+    [Route("bindingeventdemo2")]
     public class WeatherForecastController : ControllerBase
     {
         private readonly ILogger<WeatherForecastController> _logger;
@@ -16,11 +16,12 @@ namespace BingingApi.Controllers
         }
 
         [HttpPost]
-        public void ProcessEvent(WeatherForecast forecast)
+        public void ProcessEvent(byte[] data)
         {
             _logger.LogInformation("Binding event (demo1) received from Rabbitmq Queue !!!");
+             _logger.LogInformation($"-> data：{ Encoding.UTF8.GetString(data)}");
 
-            _logger.LogInformation($"-> Today ({forecast.Date.DayOfWeek}) will have {forecast.TemperatureC}C. data：{ Encoding.UTF8.GetString(forecast.Data)}");
+            // _logger.LogInformation($"-> Today ({forecast.Date.DayOfWeek}) will have {forecast.TemperatureC}C. data：{ Encoding.UTF8.GetString(forecast.Data)}");
         }
     }
 }
