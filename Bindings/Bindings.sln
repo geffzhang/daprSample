@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31521.260
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{670FB160-2FFF-4BED-A259-3A2C9DF40B73}"
 EndProject
@@ -11,7 +11,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dapr", "dapr", "{7A03582F-4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components", "components", "{74BC4D93-8621-41C2-B8A8-EC66BEB6C77B}"
 	ProjectSection(SolutionItems) = preProject
-		dapr\components\azure.storage.queue-binding.yaml = dapr\components\azure.storage.queue-binding.yaml
+		dapr\components\rabbitmq.queue-binding.yaml = dapr\components\rabbitmq.queue-binding.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C46DB70C-13DE-4ECE-8480-4A9CA001D1BC}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
 	EndProjectSection
 EndProject
 Global

@@ -1,9 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BingingApi.Controllers
 {
@@ -21,7 +17,7 @@ namespace BingingApi.Controllers
         [HttpPost]
         public void ProcessEvent(WeatherForecast forecast)
         {
-            _logger.LogInformation("Binding event (demo1) received from Azure Storage Queue !!!");
+            _logger.LogInformation("Binding event (demo1) received from Rabbitmq Queue !!!");
 
             _logger.LogInformation($"-> Today ({forecast.Date.DayOfWeek}) will have {forecast.TemperatureC}C.");
         }

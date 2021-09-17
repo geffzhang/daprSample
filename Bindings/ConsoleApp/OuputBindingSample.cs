@@ -14,13 +14,16 @@ namespace ConsoleApp
 
         public override string DisplayName => "Using de Output Binding";
 
-        public override async Task RunAsync(CancellationToken cancellationToken)
+        public override async Task RunAsync(CancellationToken cancellationToken = default)
         {
-            using var client = new DaprClientBuilder().Build();
+            using var client = new DaprClientBuilder( )
+                .UseHttpEndpoint("http://localhost:3500")
+                .UseGrpcEndpoint("http://localhost:50000")
+              .Build();
 
             var data = new WeatherForecast()
             {
-                Date = DateTime.Today,
+                Date = DateTime.Now,
                 TemperatureC = 12,
                 Summary = "Sunny"
             };

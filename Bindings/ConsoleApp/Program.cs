@@ -1,16 +1,15 @@
 ﻿using Dapr.Client;
 using System;
+using System.Threading.Tasks;
 
 namespace ConsoleApp
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-
-            using var client = new DaprClientBuilder().Build();
-            client.InvokeBindingAsync("", "", data)
+            var sample = new OuputBindingSample();
+            await sample.RunAsync();
         }
     }
 }

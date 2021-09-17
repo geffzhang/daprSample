@@ -1,0 +1,19 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: bindingeventdemo
+  namespace: default
+spec:
+  type: bindings.rabbitmq
+  version: v1
+  metadata:
+  - name: queueName
+    value: "binding-requests"
+  - name: host
+    value: "amqp://localhost:5672"
+  - name: durable
+    value: "true"
+  - name: deletedWhenUnused
+    value: "true"
+  - name: ttlInSeconds
+    value: 600

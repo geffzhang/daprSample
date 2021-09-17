@@ -7,20 +7,23 @@ In this sample we can see how Dapr works using binding:
 apiVersion: dapr.io/v1alpha1
 kind: Component
 metadata:
-  name: bindingeventdemo1
+  name: bindingeventdemo
   namespace: default
 spec:
-  type: bindings.azure.storagequeues
+  type: bindings.rabbitmq
   version: v1
   metadata:
-  - name: storageAccount
-    value: "<AZURE-STORAGE-ACCOUNT-NAMNE>"
-  - name: storageAccessKey
-    value: "<AZURE-STORAGE-ACCOUNT-KEY>"
-  - name: queue
-    value: "<QUEUE-NAME>"
+  - name: queueName
+    value: "binding-requests"
+  - name: host
+    value: "amqp://localhost:5672"
+  - name: durable
+    value: "true"
+  - name: deletedWhenUnused
+    value: "true"
   - name: ttlInSeconds
-    value: "60"
+    value: 600
+
 ```
 3. Add a Post method (with no name)) inside API Controller and be sure api name (*controller name*) has the same name as the Dapr component (*metadata.name*).
 4. Execute Dapr runtime:
@@ -30,5 +33,5 @@ dapr run --app-id bindingeventdemo1 `
     --dapr-http-port 3500 `
     --dapr-grpc-port 50000 `
     --components-path ./dapr/components `
-    dotnet run -p ./ApiApp/ApiApp.csproj
+    dotnet run ./ApiApp/ApiApp.csproj
 ```
